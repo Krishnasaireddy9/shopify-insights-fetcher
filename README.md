@@ -132,6 +132,7 @@ Access the interactive API documentation (Swagger UI) at `http://127.0.0.1:8000/
 ```
 📂 Project Structure
 The project follows a clean, layered architecture to ensure separation of concerns and maintainability.
+```
 shopify-insights-fetcher/
 ├── app/
 │   ├── __init__.py
@@ -147,6 +148,6 @@ shopify-insights-fetcher/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
+```
 
 
