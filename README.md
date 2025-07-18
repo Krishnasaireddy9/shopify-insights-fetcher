@@ -96,5 +96,57 @@ Access the interactive API documentation (Swagger UI) at `http://127.0.0.1:8000/
 {
   "website_url": "[https://memy.co.in](https://memy.co.in)"
 }
+```
+**Response:**
+```json
+{
+  "job_id": 1,
+  "website_url": "[https://memy.co.in](https://memy.co.in)",
+  "status": "PENDING"
+}
+```
+### 2. Retrieve Job Results
+
+- **Endpoint**: GET /results/{job_id}
+- **Description:** Checks the status of a job. Once completed, it returns all the scraped insights.
+
+**Response (when complete):**
+```json
+{
+  "job_id": 1,
+  "status": "COMPLETED",
+  "website_url": "[https://memy.co.in](https://memy.co.in)",
+  "data": {
+    "website_url": "[https://memy.co.in](https://memy.co.in)",
+    "product_catalog": [...],
+    "hero_products": [...],
+    "social_handles": {...},
+    "contact_details": {...},
+    "faqs": [...],
+    "important_links": {...},
+    "brand_context": "...",
+    "privacy_policy": "...",
+    "refund_policy": "..."
+  }
+}
+```
+📂 Project Structure
+The project follows a clean, layered architecture to ensure separation of concerns and maintainability.
+shopify-insights-fetcher/
+├── app/
+│   ├── __init__.py
+│   ├── database.py         # SQLAlchemy engine and session setup
+│   ├── db_models.py        # SQLAlchemy table models
+│   ├── exceptions.py       # Custom application exceptions
+│   ├── main.py             # FastAPI app, API routes, and startup logic
+│   ├── models.py           # Pydantic data models for API I/O
+│   └── services/
+│       ├── __init__.py
+│       ├── scraping_service.py   # Core logic for scraping a single site
+│       └── competitor_service.py # Logic for finding competitors
+├── .gitignore
+├── README.md
+└── requirements.txt
+
 
 
